@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "Cera Pro";
+    src: url("../fonts/Cera Pro Regular.otf") format("opentype");
+}
+    
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Cera Pro";
+}
+.wrap-header{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    height: 80px;
+}
+
+header{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+.header-icon img{
+    height: 30px;
+    cursor: pointer;
+}
+.header-menu span+span{
+    margin-left: 20px;
+}
+.header-menu span a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#333;
+    transition: .2s;
+}
+.header-menu span a:hover{
+    transition: .2s;
+    color:tomato;
+}
+.content{
+    padding-top: 80px;
+    width: 85%;
+    margin: auto;
+}
+.block-v{
+    display: flex;
+}
+.block{
+    flex: 1;
+}
+.block p{
+    color:green;
+    font-size: 26px;
+    font-weight: bolder;
+}
+.block span{
+    color:rgb(131, 131, 131);
+}
+.wrap-footer{
+    background-color:#f5f5f5;
+}
+footer{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    padding: 20px 0px;
+}
+.footer-block{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.footer-block p{
+    color:rgb(146, 146, 146);
+}
+.footer-block span a{
+    text-decoration: none;
+    color:#333;
+}
+.header-menu span .active{
+    color:tomato;
+}
+/* eror */
+.eror p{
+    color:tomato;
+    text-transform: uppercase;
+}
+.eror{
+    text-align: center;
+}

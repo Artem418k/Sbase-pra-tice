@@ -1,0 +1,27 @@
+.wrap-description-goods{
+    padding-top: 80px;
+    width: 85%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.all{
+    color:tomato;
+    font-size: 48px;
+    cursor: pointer;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+
+.slider{
+    width: 40%;
+    float: left;
+}
+.description-goods{
+    display: flex;
+    align-items: center;
+}
+.desc-goods{
+    margin-left: 50px;
+}

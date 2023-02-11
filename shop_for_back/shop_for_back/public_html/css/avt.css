@@ -1,0 +1,30 @@
+.chat{
+    padding-top: 80px;
+    width: 85%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.avt{
+    width: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.avt input{
+    height: 25px;
+    outline: none;
+}
+.avt button{
+    background-color:rgb(26, 81, 143);
+    transition: .2s;
+    color:#fff;
+    text-transform: uppercase;
+    height: 30px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+.avt button:hover{
+    background-color:rgb(49, 122, 206);
+    transition: .2s;
+}

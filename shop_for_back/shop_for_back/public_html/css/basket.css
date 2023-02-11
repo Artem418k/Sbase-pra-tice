@@ -1,0 +1,33 @@
+.basket{
+    padding-top: 80px;
+    width: 85%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.block-goods-basket{
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+    align-items: center;
+    border:1px solid silver;
+    padding: 0px 10px 0px;
+}
+
+.block-goods-basket img{
+    height: 40px;
+}
+.block-goods-basket+.block-goods-basket{
+    margin-top: 15px;
+}
+.delete{
+    color:tomato;
+    cursor: pointer;
+}
+.btn-basket{
+    background-color:tomato;
+    color:#fff;
+    border:none;
+    padding: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}

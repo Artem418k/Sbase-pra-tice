@@ -1,0 +1,116 @@
+<?php
+if(isset($_GET['id']) && is_numeric($_GET['id'])){
+    include("tools/db.php");
+    $id = $_GET['id'];
+    $product = $mysql->query("SELECT * FROM catalog WHERE id='$id'")->fetch_array();
+    if($product==null){
+        header("Location: catalog.php");
+    }
+}
+else{
+    header("Location: catalog.php");
+}
+session_start();
+$user = $_SESSION['user'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет магазин 'ФОКУС' | Головна сторінка</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/desc.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+
+</head>
+
+<body>
+    <div class="wrap-header">
+        <header>
+            <div class="header-logo">
+                <img src="./images/logo.png" alt="">
+            </div>
+            <div class="header-menu">
+                <span><a href="index.php">Головна</a></span>
+                <span><a class="active" href="catalog.php">Каталог товарів</a></span>
+                <span><a href="chat.php">Клієнтський чат</a></span>
+                <?php if($user!=null){
+                    if($user['admin']==1){?>
+                        <span><a href="admin.php">Адмін-панель</a></span>
+                    <?php }?>
+                        <span><a href="tools/exit.php">Вийти</a></span>
+                    
+                <?php }else{?>
+                    <span><a href="login.php">авторизація</a></span>
+                <?php } ?>
+            </div>
+            <div class="header-icon">
+                <a href="basket.php">
+                    <img src="./images/icon-basket.png" alt="">
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="wrap-description-goods">
+        <a href="catalog.php">
+            <span class="all">&larr;</span>
+        </a>
+        <div class="description-goods">
+            <div class="slider single-item">
+                <img src="./products/<?= $product['image']?>" alt="">
+            </div>
+            <div class="desc-goods">
+                <h3><?= $product['title']?></h3>
+                <p><?= $product['description']?></p>
+                <p><?= $product['price']?> &#8372;</p>
+                <button class="btn add-to-basket" data-id="<?= $product['id']?>">Додати до корзини</button>
+                <?php if($user!=null){
+                    if($user['admin']==1){?>
+                    <br><br><a href="tools/del_product.php?id=<?= $product['id']?>">Видалити товар</button>
+                <?php }}?>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-footer">
+        <footer>
+            <div class="footer-block">
+                <p>Графік роботи Call-центру</p>
+            </div>
+            <div class="footer-block">
+                <p>Інформація про компанію</p>
+                <span><a href="error.php">Про нас</a></span>
+                <span><a href="error.php">Умови використання сайту</a></span>
+                <span><a href="error.php">Вакансії</a></span>
+                <span><a href="error.php">Контакти</a></span>
+            </div>
+            <div class="footer-block">
+                <p>Допомога</p>
+                <span><a href="error.php">Доставка та оплата</a></span>
+                <span><a href="error.php">Кредит</a></span>
+                <span><a href="error.php">Гарантія</a></span>
+                <span><a href="error.php">Повернення товару</a></span>
+                <span><a href="error.php">Сервісні центри</a></span>
+            </div>
+            <div class="footer-block">
+                <p>Сервіси</p>
+                <span><a href="error.php">Доставка та оплата</a></span>
+                <span><a href="error.php">Кредит</a></span>
+                <span><a href="error.php">Гарантія</a></span>
+                <span><a href="error.php">Повернення товару</a></span>
+
+            </div>
+        </footer>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="./slick/slick.min.js"></script>
+    <script>
+        $('.single-item').slick();
+    </script>
+</body>
+
+</html>
